@@ -8,7 +8,7 @@ describe("ToDo App", () => {
   });
 
   it("user can see the home page", () => {
-    cy.contains("h1", "You NOT did it!");
+    cy.contains("h1", "You did it!");
   });
 
   it("user can goes to the conter page", () => {
