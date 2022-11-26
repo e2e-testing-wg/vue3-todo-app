@@ -38,5 +38,10 @@ export const useTodoStore = defineStore("todo", {
     addTodo(text: string) {
       this.todos.push({ text, id: uuidv4(), isDone: false });
     },
+    deleteTodo(todoIdToDelete: string) {
+      this.todos = this.todos.filter((todo) => {
+        return todo.id !== todoIdToDelete;
+      });
+    },
   },
 });
