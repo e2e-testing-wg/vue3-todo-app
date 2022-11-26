@@ -1,5 +1,9 @@
 name: End-to-end tests
-on: [pull_request]
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
@@ -12,3 +16,20 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           start: npm run build-ci
+  cypress-build-run:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+        with:
+          build: npm run build-only
+          start: npm run preview
+          record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          CYPRESS_PROJECT_ID: ${{secrets.PROJECT_ID}}
