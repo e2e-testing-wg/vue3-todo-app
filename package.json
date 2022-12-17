@@ -5,7 +5,7 @@
     "build": "run-p type-check build-only",
     "build-ci": "npm run build-only && npm run preview",
     "build-only": "vite build",
-    "dev": "vite",
+    "dev": "vite --host",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "preview": "vite preview",
     "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' :4173 'cypress open --e2e'",
@@ -20,6 +20,7 @@
     "vue-router": "^4.1.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.29.0",
     "@rushstack/eslint-patch": "^1.1.4",
     "@types/jsdom": "^20.0.0",
     "@types/node": "^16.11.68",
