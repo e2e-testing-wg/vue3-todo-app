@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("homepage has title and links to intro page", async ({ page }) => {
   await page.goto("http://localhost:5173/");
+  await expect(page).toHaveScreenshot({ maxDiffPixels: 100 });
 
   // create a locator
   const getStarted = page.getByRole("link", { name: "Counter" });
