@@ -18,7 +18,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/counter" data-testId="Counter">Counter</RouterLink>
+        <RouterLink to="/counter-pro" data-testId="Counter">Counter</RouterLink>
         <RouterLink to="/todo">Todo</RouterLink>
       </nav>
     </div>
