@@ -25,4 +25,10 @@ const { increment, resetCounter } = counterStore;
     justify-content: center;
   }
 }
+button {
+  background-color: lightgreen;
+  color: #353535;
+  padding: 0.5ch 1ch;
+  margin-bottom: 0.5ch;
+}
 </style>
