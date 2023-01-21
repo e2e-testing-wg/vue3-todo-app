@@ -20,6 +20,8 @@
     "vue-router": "^4.1.5"
   },
   "devDependencies": {
+    "@argos-ci/cli": "^0.4.3",
+    "@argos-ci/cypress": "^0.0.6",
     "@playwright/test": "^1.29.0",
     "@rushstack/eslint-patch": "^1.1.4",
     "@types/jsdom": "^20.0.0",

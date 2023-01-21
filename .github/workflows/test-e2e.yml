@@ -33,3 +33,6 @@ jobs:
           CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           CYPRESS_PROJECT_ID: ${{secrets.PROJECT_ID}}
+      # Upload screenshots to Argos CI Service
+      - name: Upload screenshots to argos-ci.com
+        run: npx @argos-ci/cli upload ./cypress/screenshots

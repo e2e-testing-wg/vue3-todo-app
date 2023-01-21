@@ -2,13 +2,21 @@
 import { selectors } from "../fixtures/seletors.js";
 import { PATHS, LITERALS } from "../fixtures/constants.js";
 
-describe("ToDo App", () => {
+const screenshotOptions = { overwrite: true };
+
+describe("My ToDo App", () => {
   beforeEach(() => {
     cy.visit("/");
   });
 
   it("user can see the home page", () => {
     cy.contains("h1", "You did it!");
+
+    // Screenshot a full page
+    cy.argosScreenshot("home-page", screenshotOptions);
+
+    // Screenshot a component
+    cy.get("main").argosScreenshot("home-list", screenshotOptions);
   });
 
   it("user can goes to the conter page", () => {
@@ -34,13 +42,13 @@ describe("ToDo App", () => {
     it("user can ingrement +2 the counter", () => {
       cy.get("@buttonIncrement").click().click();
       cy.contains(`${LITERALS.CURRENT_COUNTER} 2`);
-      cy.screenshot();
+      cy.screenshot(screenshotOptions);
     });
 
     it("user can reset the counter", () => {
       cy.get("@buttonReset").click();
       cy.contains(`${LITERALS.CURRENT_COUNTER} 0`);
-      cy.screenshot();
+      cy.screenshot(screenshotOptions);
     });
   });
 });
